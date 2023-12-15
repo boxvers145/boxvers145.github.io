@@ -137,7 +137,7 @@ async function onLogin(event) {
   event.preventDefault();
   const loginUser = document.querySelector('#loginUser').value;
   const password = document.querySelector('#password').value;
-  const response = await fetch(`${process.env.PRODUCTION_API_BASE_URL}/auths/login`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/auths/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -338,7 +338,7 @@ class InitGame{
 
 async function sendDefeat(){
     const user = getAuthenticatedUser();
-    const response = await fetch('/api/leaderboard/defeat', {
+    const response = await fetch(`${process.env.API_BASE_URL}/leaderboard/defeat`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -358,7 +358,7 @@ async function sendDefeat(){
 
 async function sendVictory(){
     const user = getAuthenticatedUser();
-    const response = await fetch('/api/leaderboard/victory', {
+    const response = await fetch(`${process.env.API_BASE_URL}/leaderboard/victory`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
