@@ -2425,7 +2425,6 @@ html {
 *{
   margin: auto;
   padding: 0;
-  cursor: none;
 }
 
 body {
@@ -2502,36 +2501,6 @@ footer {
 
 /* cursor animation and style */
 
-.inner-cursor {
-  position: fixed;
-  left: 10px;
-  width: 10px;
-  height: 10px;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  mix-blend-mode: difference;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: width 0.5s, height 0.5s;
-}
-
-.inner-cursor.grow {
-  width: 25px;
-  height: 25px;
-  transition: width 0.5s, height 0.5s;
-}
-
-.outer-cursor {
-  position: fixed;
-  left: 10px;
-  width: 25px;
-  height: 25px;
-  transform: translate(-50%, -50%);
-  border: 1px solid #fff;
-  mix-blend-mode: difference;
-  border-radius: 50%;
-  pointer-events: none;
-}
 
 #page-container-rule {
   display: contents;
@@ -2649,7 +2618,7 @@ span:nth-child(2){
   text-align: center;
   text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
   box-shadow: 0 0 10px rgb(0, 221, 255), 0 0 20px rgb(0, 221, 255), 0 0 30px rgb(0, 221, 255), 0 0 40px rgb(0, 221, 255);
-  cursor: none;
+
 }
 
 #neonButton{
@@ -2658,7 +2627,7 @@ span:nth-child(2){
   text-align: center;
   text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
   box-shadow: 0 0 1px rgb(0, 221, 255), 0 0 3px rgb(0, 221, 255), 0 0 6px rgb(0, 221, 255), 0 0 9px rgb(0, 221, 255);
-  cursor: none;
+
 }
 
 #neonButton-alternative{
@@ -2666,7 +2635,7 @@ span:nth-child(2){
   color: white;
   text-align: center;
   box-shadow: 0 0 1px rgb(255, 20, 147), 0 0 3px rgb(255, 20, 147), 0 0 6px rgb(255, 20, 147), 0 0 9px rgb(255, 20, 147);
-  cursor: none;
+
 }
 
 #neonButton-alternative:hover{
