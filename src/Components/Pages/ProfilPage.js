@@ -193,7 +193,7 @@ function changeUsername(e) {
         const newUsername = inputUsername.value;
 
         // On fait une requête PATCH à l'api router/profil
-        fetch(`${process.env.API_BASE_URL}/profil`, {
+        fetch(`${process.env.PRODUCTION_API_BASE_URL}/profil`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
