@@ -1,0 +1,1 @@
+var innerCursor=document.querySelector(".inner-cursor"),outerCursor=document.querySelector(".outer-cursor");function moveCursor(r){var e=r.clientX,o=r.clientY;innerCursor.style.left="".concat(e,"px"),innerCursor.style.top="".concat(o,"px"),outerCursor.style.left="".concat(e,"px"),outerCursor.style.top="".concat(o,"px")}document.addEventListener("mousemove",moveCursor);
