@@ -1,15 +1,21 @@
 import { getAuthenticatedUser } from '../../utils/auths';
 import { clearPage, grow, returnHomePage } from '../../utils/render';
+import Navigate from '../Router/Navigate';
 
 const ProfilPage = () => {
   clearPage();
-  renderProfilPageForm();
+  const authenticatedUser = getAuthenticatedUser();
+  if (!authenticatedUser) {
+    alert('you must be logged');
+    Navigate('/login');
+  } else {
+    renderProfilPageForm();
+  }
 };
 
 async function renderProfilPageForm() {
   const authenticatedUser = getAuthenticatedUser();
   const dataGame = await getDataGameUser();
-  const email = await getEmailUser();
   const main = document.querySelector('main');
 
   const returnBtn = document.createElement('button');
@@ -50,7 +56,7 @@ async function renderProfilPageForm() {
   const span1Email = document.createElement('span');
   span1Email.className = 'label-text';
   span1Email.id = 'span1Email';
-  span1Email.innerText = `${email}`;
+  span1Email.innerText = `${dataGame?.user}`;
 
   const label2 = document.createElement('label');
   label2.className = 'label';
@@ -212,29 +218,17 @@ async function renderProfilPageForm() {
 async function getDataGameUser() {
   try {
     const authenticatedUser = getAuthenticatedUser();
-    const response = await fetch(`${process.env.API_BASE_URL}/profil/${authenticatedUser.username}`);
+    const response = await fetch(`/api/profil/${authenticatedUser.username}`, {
+      headers: {
+        Authorization: authenticatedUser.token,
+      },
+    });
     if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
     const dataGame = await response.json();
     console.log('dataGame:');
     console.log(dataGame);
     return dataGame;
-  } catch (error) {
-    console.error('getDataGameUser::error: ', error);
-    throw error;
-  }
-}
-
-async function getEmailUser() {
-  try {
-    const authenticatedUser = getAuthenticatedUser();
-    const response = await fetch(`${process.env.API_BASE_URL}/profil/email/${authenticatedUser.username}`);
-    if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
-
-    const email = await response.json();
-    console.log('dataGame:');
-    console.log(email);
-    return email;
   } catch (error) {
     console.error('getDataGameUser::error: ', error);
     throw error;
