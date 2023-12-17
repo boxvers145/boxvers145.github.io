@@ -218,7 +218,7 @@ async function renderProfilPageForm() {
 async function getDataGameUser() {
   try {
     const authenticatedUser = getAuthenticatedUser();
-    const response = await fetch(`/api/profil/${authenticatedUser.username}`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/profil/${authenticatedUser.username}`, {
       headers: {
         Authorization: authenticatedUser.token,
       },
